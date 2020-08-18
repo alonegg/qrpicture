@@ -24,7 +24,7 @@ error_reporting(-1);
 // attach to session
 session_start();
 
-//---
+// import configuration
 require('config.php');
 
 // connecting, selecting database
@@ -44,17 +44,30 @@ $result = $db->query($query) or die(json_encode(array('error' => 'Invalid query:
 $row = $result->fetch_row();
 $lock = $row[0];
 
-if (!$lock)
-	die(json_encode(array('error' => 'Queue worker already running')));
+//if (!$lock)
+//	die(json_encode(array('error' => 'Queue worker already running')));
 
 for (; ;) {
+
+	// lock table
+	$query = 'LOCK TABLES queue WRITE';
+	$result = $db->query($query) or die(json_encode(array('error' => 'Invalid query: ' . $db->error)));
+
 	// get first QR
 	$query = 'SELECT min(id) FROM queue WHERE status=0';
 	$result = $db->query($query) or die(json_encode(array('error' => 'Invalid query: ' . $db->error)));
 	$row = $result->fetch_row();
 	$rowId = $row[0];
 	if (!$rowId)
-		die(json_encode(array('error' => 'Queue empty')));
+		die("Empty"); // die(json_encode(array('error' => 'Queue empty')));
+
+	// mark busy
+	$query = 'UPDATE queue SET status=1 WHERE id=' . $rowId;
+	$result = $db->query($query) or die(json_encode(array('error' => 'Invalid query: ' . $db->error)));
+
+	// unlock table
+	$query = 'UNLOCK TABLES';
+	$result = $db->query($query) or die(json_encode(array('error' => 'Invalid query: ' . $db->error)));
 
 	// get full record
 	$query = 'SELECT * FROM queue WHERE id=' . $rowId;
@@ -68,22 +81,37 @@ for (; ;) {
 
 	$rawImg = str_replace("data:image/png;base64,", "", $row['imageb64']);
 	$rawImg = base64_decode($rawImg);
-	$rawImg = imagecreatefromstring($rawImg);
+	$rawImg = @imagecreatefromstring($rawImg);
 
 	// save image
-	if (!@imagepng($rawImg, 'images/' . $jobId . '-186x186-upload.png'))
+	if (!@imagepng($rawImg, 'images/' . $jobId . '-186x186-upload.png')) {
+		// erro state
+		$query = 'UPDATE queue SET status=4, imagefilename="' . addslashes('images/' . $jobId . '-186x186.png') . '" WHERE id=' . $rowId;
+		$result = $db->query($query) or die(json_encode(array('error' => 'Invalid query: ' . $db->error)));
+
+		continue;
 		die(json_encode(array('error' => 'Failed to save image')));
+	}
 
 	// resize to 93x93
 	$im = @imagescale($rawImg, 93, 93, IMG_BICUBIC);
 
 	// save image
-	if (!@imagepng($im, 'images/' . $jobId . '-93x93-upload.png'))
+	if (!@imagepng($im, 'images/' . $jobId . '-93x93-upload.png')) {
+		// erro state
+		$query = 'UPDATE queue SET status=4, imagefilename="' . addslashes('images/' . $jobId . '-186x186.png') . '" WHERE id=' . $rowId;
+		$result = $db->query($query) or die(json_encode(array('error' => 'Invalid query: ' . $db->error)));
+
+		sleep(1);
+		continue;
 		die(json_encode(array('error' => 'Failed to save image')));
+	}
 
 	$docroot = @$_SERVER["DOCUMENT_ROOT"];
 	if (empty($docroot))
 		$docroot = '.';
+	if (empty($txt))
+		$txt = $sitename;
 
 	$cmd = $docroot . '/bin/qrwork "' . addslashes($txt) . '" images/' . $jobId . '-93x93-upload.png images/' . $jobId . '-93x93-mask.png --outline=' . $outlineNr . ' --maxsalt=0';
 	$json = `$cmd`;
@@ -96,4 +124,4 @@ for (; ;) {
 	$result = $db->query($query) or die(json_encode(array('error' => 'Invalid query: ' . $db->error)));
 
 }
-die(json_encode(array('error' => 'done')));
+die("Empty");

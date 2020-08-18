@@ -19,7 +19,8 @@ SITEFILES = \
 	www.qrpicture.com/robots.txt \
 	www.qrpicture.com/status.php \
 	www.qrpicture.com/submit.php \
-	www.qrpicture.com/worker.php
+	www.qrpicture.com/worker.php \
+	www.qrpicture.com/worker.sh
 	
 SITEFILES_ASSETS = \
 	www.qrpicture.com/assets/8S5rXB.png \
