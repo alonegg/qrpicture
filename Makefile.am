@@ -23,6 +23,7 @@ SITEFILES = \
 	
 SITEFILES_ASSETS = \
 	www.qrpicture.com/assets/8S5rXB.png \
+	www.qrpicture.com/assets/eVpdGC-186x186.png \
 	www.qrpicture.com/assets/index.html \
 	www.qrpicture.com/assets/outline0-97x97.png \
 	www.qrpicture.com/assets/outline1-97x97.png \
@@ -33,6 +34,9 @@ SITEFILES_ASSETS = \
 	www.qrpicture.com/assets/p2G4MC.png \
 	www.qrpicture.com/assets/qrAwesome.anim.col.210x210.gif \
 	www.qrpicture.com/assets/qrSpiral.anim.col.210x210.gif
+
+SITEFILES_BIN = \
+	www.qrpicture.com/bin/index.html
 
 SITEFILES_IMAGES = \
 	www.qrpicture.com/images/index.html
@@ -50,6 +54,7 @@ install-data-hook:
 	install -d -m 775 $(prefix)/images
 	cd $(top_srcdir); install $(SITEFILES) $(prefix)
 	cd $(top_srcdir); install $(SITEFILES_ASSETS) $(prefix)/assets
+	cd $(top_srcdir); install $(SITEFILES_BIN) $(prefix)/bin
 	cd $(top_srcdir); install $(SITEFILES_IMAGES) $(prefix)/images
 	if test ! -e "$(prefix)/config.php"; then install "$(top_srcdir)/config.php"  "$(prefix)/config.php"; fi
 
