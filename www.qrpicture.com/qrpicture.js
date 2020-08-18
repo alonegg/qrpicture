@@ -207,8 +207,13 @@ if (outlineNr>3) outlineNr=3;
 				}
 			},
 			onFailure: function(xhdr) {
+				if (xhdr.status == 0) {
+					// incase status got corrupted)
+					setTimeout(function(){ This.status(jobid)}, 1000);
+				} else {
 				document.id('info').set('text', 'JSON returned with status '+xhdr.status+': '+xhdr.statusText);
 				document.id('qrTextButton').set('disabled', false);
+				}
 			},
 		});
 		 
@@ -261,6 +266,13 @@ if (outlineNr>3) outlineNr=3;
 			method: 'post',
 			data: postdata,
 			onComplete: function() {
+				/*
+				 * @date 2020-08-18 12:53:00
+				 * Don't call worker from http context. It should already be present
+				 * Keep old code for historics
+				 */
+				return;
+
 				// kick the worker
 				var worker = new Request({ 
 					url: 'worker.php'
@@ -549,7 +561,8 @@ function Clip()
 
 		// start handler
 		This.colour = 20;
-		document.id('regenlevel').innerHTML = '+'+((This.colour-18)>>1);
+//		hide until functionality reconstructed		
+//		document.id('regenlevel').innerHTML = '+'+((This.colour-18)>>1);
 		qr.generate({
 			text: document.id('qrText').value,
 			outlinenr: This.outlineNr,
@@ -564,7 +577,8 @@ function Clip()
 
 		// start handler
 		This.colour += 2;
-		document.id('regenlevel').innerHTML = '+'+((This.colour-18)>>1);
+//		hide until functionality reconstructed		
+//		document.id('regenlevel').innerHTML = '+'+((This.colour-18)>>1);
 		qr.generate({
 			text: document.id('qrText').value,
 			outlinenr: This.outlineNr,
