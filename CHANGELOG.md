@@ -6,11 +6,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [Release 1.1.0] 2020-08-18 22:58:45
+
+Feedback from AWS launch.
+Most notably worker processes need to be manually started.
+
 ```
 2020-08-18 22:38:58 Updated to mootools-1.6.0.
 2020-08-18 15:50:49 Comment updates.
 2020-08-18 15:49:02 Tune and cleanup index.php + qrpicture.js.
-2020-08-18 15:46:02 Reformat `index.php`.
+2020-08-18 15:46:02 Reformat `index.php`, no code change.
 2020-08-18 15:43:01 Standalone worker process + database locking.
 2020-08-18 15:42:04 Added missing site files.
 2020-08-18 15:38:15 Introduce config.php for site settings.
@@ -20,11 +25,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 2020-08-13 21:39:01 Minor post-release fixups.
 ```
 
-## 1.0.0 2020-08-13 21:01:10
+## Release 1.0.0 2020-08-13 21:01:10
 
 ```
 2020-08-12 10:53:55 Initial commit.
 2020-08-13 21:01:10 Reconstructed most of the functionality from backups.
 ```
 
-[Unreleased]: https://github.com/xyzzy/qrpicture/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/xyzzy/qrpicture/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/xyzzy/qrpicture/compare/v1.0.0...v1.1.0
