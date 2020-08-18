@@ -20,7 +20,7 @@
 // attach to session
 session_start();
 
-//---
+// import configuration
 require('config.php');
 
 // connecting, selecting database

@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ```
+2020-08-18 15:50:49 Comment updates.
 2020-08-18 15:49:02 Tune and cleanup index.php + qrpicture.js.
 2020-08-18 15:46:02 Reformat `index.php`.
 2020-08-18 15:43:01 Standalone worker process + database locking.
