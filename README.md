@@ -10,11 +10,11 @@ Features:
     
 Creating photo QR's is a two-part process.
 
-First part (`sqcode`) is to create a 93x93 pixel dithered monochrome image overlaid with mandatory QR pixels. 
+First part (`qrcode`) is to create a 93x93 pixel dithered monochrome image overlaid with mandatory QR pixels. 
 The applied dithering performs a best match to ensure the CRC is fully compliant. 
 
-The second part (`sqscq`) is to create a 186x186 pixel dithered color image.
-The colour palette is created using Spacial Color Quantification.
+The second part (`qrscq`) is to create a 186x186 pixel dithered color image.
+The colour palette is created using Spacial Colour Quantification.
 
 Both parts use the same SCQ dithering mechanism to maximize shades and perception to give the result a natural effect.
 
@@ -26,6 +26,9 @@ Both parts use the same SCQ dithering mechanism to maximize shades and perceptio
 
 # Installation
 
+You can create the autoconf framework with the script `autogen.sh` if `configure` is missing.
+Otherwise, the GitHub release section will have a framework enabled bundle `https://github.com/xyzzy/qrpicture/releases/download/vX.Y.Z/qrpicture-X.Y.Z.tar.gz`.
+ 
 Configure and set prefix to document root
 
 ```
@@ -51,6 +54,13 @@ Install site
 ```
 	make install
 ```
+
+Start background workers.
+I suggest one worker per CPU core.
+
+```
+	nohup worker.sh >/var/log/httpd/worker1.out 2>>/var/log/httpd/worker1.err&
+```
 	
 # Versioning
 
@@ -64,3 +74,4 @@ This project is licensed under the GNU AFFERO General Public License v3 - see th
 
 * Derrick Coetzee and his amazing work on Spatial Colour Quantinazion.
 * Masahiro Hara and his work on setting the QR code standard.
+* Irving S. Reed and Gustave Solomon for their work on "Reed-Solomon ECC".
