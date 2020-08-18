@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ```
+2020-08-18 15:46:02 Reformat `index.php`.
 2020-08-18 15:43:01 Standalone worker process + database locking.
 2020-08-18 15:42:04 Added missing site files.
 2020-08-18 15:38:15 Introduce config.php for site settings.
