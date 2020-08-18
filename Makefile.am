@@ -8,6 +8,7 @@ EXTRA_DIST = \
 	$(SITEFILES) $(SITEFILES_ASSETS) $(SITEFILES_IMAGES)
     
 SITEFILES = \
+	www.qrpicture.com/config.php \
 	www.qrpicture.com/favicon.ico \
 	www.qrpicture.com/index.php \
 	www.qrpicture.com/qrcode-mask-93x93.png \
