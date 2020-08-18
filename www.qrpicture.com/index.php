@@ -135,25 +135,6 @@ require('config.php');
             border: 1px solid black;
         }
 
-        .textSlider {
-            border: none;
-            position: absolute;
-            width: 5100px;
-            height: 416px;
-            margin: 0;
-            padding: 0;
-        }
-
-        .textFrame {
-            position: relative;
-            float: left;
-            width: 498px;
-            height: 406px;
-            margin: 0;
-            padding: 5px;
-        }
-
-
         /*****/
 
         .textTabs {
@@ -262,8 +243,8 @@ require('config.php');
         }
 
     </style>
-    <script src="mootools-core-1.4.5.js" type="text/javascript"></script>
-    <script src="mootools-more-1.4.0.1.js" type="text/javascript"></script>
+    <script src="MooTools-Core-1.6.0.js" type="text/javascript"></script>
+    <script src="MooTools-More-1.6.0.js" type="text/javascript"></script>
     <script src="qrpicture.js" type="text/javascript"></script>
 </head>
 <body>

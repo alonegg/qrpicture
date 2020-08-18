@@ -271,13 +271,13 @@ if (outlineNr>3) outlineNr=3;
 				 * Don't call worker from http context. It should already be present
 				 * Keep old code for historics
 				 */
-				return;
-
-				// kick the worker
-				var worker = new Request({ 
-					url: 'worker.php'
-				});
-				worker.send();
+				if(0) {
+					// kick the worker
+					var worker = new Request({
+						url: 'worker.php'
+					});
+					worker.send();
+				}
 			},
 			onSuccess: function(json, responseText) {
 				if (json.imagefilename) {
@@ -775,5 +775,4 @@ window.addEvent('domready', function(){
 	qr = new QR();
 	clip = new Clip();
 	tabs1 = new Tabs($$('.tabsWindow .tabs'), $$('.contentsSlider'), {});
-	tabs2 = new Tabs($$('.textWindow .tabs'), $$('.textSlider'), {});
 });
