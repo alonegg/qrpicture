@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ```
+2020-08-18 15:36:44 Updated database schema.
 2020-08-18 15:02:40 Allow site access for search engines.
 2020-08-13 21:39:01 Minor post-release fixups.
 ```
