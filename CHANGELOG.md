@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+```
+2020-09-03 00:43:20 Fix asset and repository names.
+```
+
 ## [Release 1.1.0] 2020-08-18 22:58:45
 
 Feedback from AWS launch.

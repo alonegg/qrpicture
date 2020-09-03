@@ -5,7 +5,7 @@ Features:
 *   The size also makes the scanning responsive and fast.
 *   186x186 pixel colour information.
 *   Colours are chosen from a high-contrast QR-safe palette.
-*   Dithering introduces blurring which reduces sharp constrast edges.
+*   Dithering introduces blurring which reduces sharp contrast edges.
 *   Repository hosted on [www.qrpicture.com](https://www.qrpicture.com).
     
 Creating photo QR's is a two-part process.
@@ -27,7 +27,7 @@ Both parts use the same SCQ dithering mechanism to maximize shades and perceptio
 # Installation
 
 You can create the autoconf framework with the script `autogen.sh` if `configure` is missing.
-Otherwise, the GitHub release section will have a framework enabled bundle `https://github.com/xyzzy/qrpicture/releases/download/vX.Y.Z/qrpicture-X.Y.Z.tar.gz`.
+Otherwise, the GitHub release section will have a framework enabled bundle `https://github.com/xyzzy/qrpicture/releases/`.
  
 Configure and set prefix to document root
 
@@ -72,6 +72,6 @@ This project is licensed under the GNU AFFERO General Public License v3 - see th
 
 ## Acknowledgments
 
-* Derrick Coetzee and his amazing work on Spatial Colour Quantinazion.
+* Derrick Coetzee and his amazing work on Spatial Colour Quantization.
 * Masahiro Hara and his work on setting the QR code standard.
 * Irving S. Reed and Gustave Solomon for their work on "Reed-Solomon ECC".

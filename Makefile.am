@@ -22,7 +22,6 @@ SITEFILES = \
 	www.qrpicture.com/worker.sh
 	
 SITEFILES_ASSETS = \
-	www.qrpicture.com/assets/8S5rXB.png \
 	www.qrpicture.com/assets/eVpdGC-186x186.png \
 	www.qrpicture.com/assets/index.html \
 	www.qrpicture.com/assets/outline0-97x97.png \
@@ -31,7 +30,7 @@ SITEFILES_ASSETS = \
 	www.qrpicture.com/assets/outline3-97x97.png \
 	www.qrpicture.com/assets/outline4-97x97.png \
 	www.qrpicture.com/assets/outline5-97x97.png \
-	www.qrpicture.com/assets/p2G4MC.png \
+	www.qrpicture.com/assets/p2G4MC-186x186.png \
 	www.qrpicture.com/assets/qrAwesome.anim.col.210x210.gif \
 	www.qrpicture.com/assets/qrSpiral.anim.col.210x210.gif
 
@@ -59,7 +58,7 @@ install-data-hook:
 	if test ! -e "$(prefix)/config.php"; then install "$(top_srcdir)/config.php" "$(prefix)/config.php"; fi
 
 uninstall-local:
-	$(RM) $(prefix)/assets/{8S5rXB.png,eVpdGC-186x186.png,index.html,outline0-97x97.png,outline1-97x97.png,outline2-97x97.png,outline3-97x97.png,outline4-97x97.png,outline5-97x97.png,p2G4MC.png,qrAwesome.anim.col.210x210.gif,qrSpiral.anim.col.210x210.gif}
+	$(RM) $(prefix)/assets/{eVpdGC-186x186.png,index.html,outline0-97x97.png,outline1-97x97.png,outline2-97x97.png,outline3-97x97.png,outline4-97x97.png,outline5-97x97.png,p2G4MC-186x186.png,qrAwesome.anim.col.210x210.gif,qrSpiral.anim.col.210x210.gif}
 	$(RM) $(prefix)/bin/index.html
 	$(RM) $(prefix)/images/index.html
 	$(RM) $(prefix)/{config.php,favicon.ico,index.php,mask-93x93.png,MooTools-Core-1.6.0.js,MooTools-More-1.6.0.js,qrcode-mask-93x93.png,qrpicture.js,qrscq-mask-93x93.png,robots.txt,status.php,submit.php,worker.php,worker.sh}

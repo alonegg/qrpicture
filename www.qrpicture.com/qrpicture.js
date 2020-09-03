@@ -1,6 +1,6 @@
 /*
  *  This file is part of qrpicture, photo realistic QR-codes.
- *  Copyright (C) 2007, xyzzy@rockingship.net
+ *  Copyright (C) 2007, xyzzy@rockingship.org
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as published

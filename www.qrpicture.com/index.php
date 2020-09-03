@@ -1,7 +1,7 @@
 <?php
 /*
  *  This file is part of qrpicture, photo realistic QR-codes.
- *  Copyright (C) 2007, xyzzy@rockingship.net
+ *  Copyright (C) 2007, xyzzy@rockingship.org
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Affero General Public License as published
@@ -256,7 +256,7 @@ require('config.php');
         <td width="420" valign="middle" nowrap="nowrap" align="center"><p><span style="font-size: xx-large; font-weight: bold; font-family: Arial, Helvetica, sans-serif;"><?php echo $sitename ?></span></p>
             <p><span style="font-size: large; font-family: Arial, Helvetica, sans-serif; font-style: italic;">Picture to QR code converter</span></p></td>
         <td><img width="210" height="210" src="assets/qrAwesome.anim.col.210x210.gif"></td>
-        <td><img width="210" height="210" src="assets/p2G4MC.png"></td>
+        <td><img width="210" height="210" src="assets/p2G4MC-186x186.png"></td>
     </tr>
     </tbody>
 </table>
