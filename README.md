@@ -18,6 +18,17 @@ The colour palette is created using Spacial Colour Quantification.
 
 Both parts use the same SCQ dithering mechanism to maximize shades and perception to give the result a natural effect.
 
+# Scalable mobile friendly html/css user interface
+
+The UI design is highly responsive and scales dynamically to screen size and aspect ratio.
+The intention is to have a single page interface optimally utilize to the screen using a single layout for both mobile and desktop.
+
+The only units used are `"%"` which is the percentage of the containing bounding box or `"em"` which is the current font size.
+This makes ALL elements/borders/spacing scale to a single base value `"document.body.fontSize"`.
+
+The general layout if constructed from the screen edges going inward using `"position:absolute"` and `"%"` as units.
+Section contents are constructed inwards going outwards using `"position:relative"` and `"em"` as units.
+
 # Requirements
 
 *   LAMP environment

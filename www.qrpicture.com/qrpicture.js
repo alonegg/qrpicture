@@ -22,7 +22,7 @@ function QR() {
 	let borderSize = 2;
 	let clipSize = 93 + borderSize * 2;
 
-	let qrDrag = document.getElementById("qr_drag");
+	let qrDrag = document.getElementById("qrDrag");
 	let tmpCanvas = document.createElement('canvas');
 	tmpCanvas.width = tmpCanvas.height = 210;
 	let overlayImg = new Image();
@@ -185,17 +185,17 @@ function QR() {
 			},
 			onSuccess: function (json, responseText) {
 				if (json.imagefilename) {
-					document.id('result').innerHTML = '<img src="' + json.imagefilename + '" />';
-					document.id('info').set('text', '');
-					document.id('qrTextButton').set('disabled', false);
-					document.id('divReGenerate').setStyle('display', null);
+					document.id('qrResult').innerHTML = '<img src="' + json.imagefilename + '" />';
+					document.id('qrInfo').set('text', '');
+					document.id('qrGenerateButton').set('disabled', false);
+					// document.id('divReGenerate').setStyle('display', null);
 				}
 				if (json.error) {
-					document.id('info').set('text', json.error);
-					document.id('qrTextButton').set('disabled', false);
+					document.id('qrInfo').set('text', json.error);
+					document.id('qrGenerateButton').set('disabled', false);
 				}
 				if (json.info) {
-					document.id('info').set('text', json.info);
+					document.id('qrInfo').set('text', json.info);
 				}
 				if (json.jobid && json.delay) {
 					setTimeout(function () {
@@ -205,13 +205,13 @@ function QR() {
 			},
 			onFailure: function (xhdr) {
 				if (xhdr.status == 0) {
-					// incase status got corrupted)
+					// in case status got corrupted)
 					setTimeout(function () {
 						This.status(jobid)
 					}, 1000);
 				} else {
-					document.id('info').set('text', 'JSON returned with status ' + xhdr.status + ': ' + xhdr.statusText);
-					document.id('qrTextButton').set('disabled', false);
+					document.id('qrInfo').set('text', 'JSON returned with status ' + xhdr.status + ': ' + xhdr.statusText);
+					document.id('qrGenerateButton').set('disabled', false);
 				}
 			},
 		});
@@ -240,7 +240,7 @@ function QR() {
 			}
 		}
 
-		document.id('qrTextButton').set('disabled', true);
+		document.id('qrGenerateButton').set('disabled', true);
 
 		// extract 186x186 image and store base64 in options
 		let ctx = window.clip.tmpCanvas.getContext('2d');
@@ -257,8 +257,8 @@ function QR() {
 		}
 
 		// submit
-		document.id('result').innerHTML = '';
-		document.id('divReGenerate').setStyle('display', 'none');
+		document.id('qrResult').innerHTML = '';
+		// document.id('divReGenerate').setStyle('display', 'none');
 		let myRequest = new Request.JSON({
 			url: 'submit.php',
 			method: 'post',
@@ -279,17 +279,17 @@ function QR() {
 			},
 			onSuccess: function (json, responseText) {
 				if (json.imagefilename) {
-					document.id('result').innerHTML = '<img src="' + json.imagefilename + '" />';
-					document.id('info').set('text', '');
-					document.id('qrTextButton').set('disabled', false);
-					document.id('divReGenerate').setStyle('display', null);
+					document.id('qrResult').innerHTML = '<img src="' + json.imagefilename + '" />';
+					document.id('qrInfo').set('text', '');
+					document.id('qrGenerateButton').set('disabled', false);
+					// document.id('divReGenerate').setStyle('display', null);
 				}
 				if (json.error) {
-					document.id('info').set('text', json.error);
-					document.id('qrTextButton').set('disabled', false);
+					document.id('qrInfo').set('text', json.error);
+					document.id('qrGenerateButton').set('disabled', false);
 				}
 				if (json.info) {
-					document.id('info').set('text', json.info);
+					document.id('qrInfo').set('text', json.info);
 				}
 				if (json.jobid && json.delay) {
 					setTimeout(function () {
@@ -298,8 +298,8 @@ function QR() {
 				}
 			},
 			onFailure: function (xhdr) {
-				document.id('info').set('text', 'JSON returned with status ' + xhdr.status + ': ' + xhdr.statusText);
-				document.id('qrTextButton').set('disabled', false);
+				document.id('qrInfo').set('text', 'JSON returned with status ' + xhdr.status + ': ' + xhdr.statusText);
+				document.id('qrGenerateButton').set('disabled', false);
 			},
 		});
 
@@ -325,9 +325,10 @@ function Clip() {
 	let borderSize = 2;
 	let clipSize = QRSize + borderSize * 2;
 
-	let qrCanvas = document.getElementById("qr_canvas");
-	let qrDrag = document.id('draggables');
-	let thumbs = $$('#draggables *');
+	let qrCanvas = document.getElementById("qrCanvas");
+	let qrCanvasWrapper = document.getElementById("qrCanvasWrapper");
+	let qrDrag = document.id('qrDraggables');
+	let thumbs = $$('#qrDraggables *');
 	let events = [];
 
 	this.tmpCanvas = document.createElement('canvas');
@@ -501,45 +502,49 @@ function Clip() {
 		this.draw();
 	}
 
+	this.loadPreviewImage = function (img) {
+		if (img.width > img.height) {
+			qrCanvas.width = document.id('qrPreview').getSize().x;
+			qrCanvas.height = qrCanvas.width * img.height / img.width;
+		} else {
+			qrCanvas.height = document.id('qrPreview').getSize().y;
+			qrCanvas.width = qrCanvas.height * img.width / img.height;
+		}
+		// let wrapper match canvas size
+		qrCanvasWrapper.style.width = qrCanvas.width + 'px';
+		qrCanvasWrapper.style.height = qrCanvas.height + 'px';
+
+		let ctx = qrCanvas.getContext('2d');
+		ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, qrCanvas.width, qrCanvas.height);
+
+		This.width = qrCanvas.width + borderSize * 2;
+		This.height = qrCanvas.height + borderSize * 2;
+		This.x = 0;
+		This.y = 0;
+		This.wh = Math.min(This.width, This.height);
+
+		This.x = (This.wh >> 3) * 1;
+		This.y = (This.wh >> 3) * 1;
+		This.wh = (This.wh >> 3) * 6;
+
+		qrDrag.width = QRSize + borderSize * 2;
+		qrDrag.height = QRSize + borderSize * 2;
+		qrDrag.parentNode.setStyle('height', This.height);
+
+		This.draw();
+	}
+
 	this.onFileUpload = function (evt) {
 		let files = evt.target.files; // FileList object
 		let theFile = files[0];
-
-		let previewSize = 400; // QRSize*3;
-
 		let reader = new FileReader();
 
 		reader.onload = (function (e) {
 			let img = This.image;
 			img.onload = function () {
-				if (img.width > img.height) {
-					qrCanvas.width = previewSize;
-					qrCanvas.height = qrCanvas.width * img.height / img.width;
-				} else {
-					qrCanvas.height = previewSize;
-					qrCanvas.width = qrCanvas.height * img.width / img.height;
-				}
-
-				let ctx = qrCanvas.getContext('2d');
-				ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, qrCanvas.width, qrCanvas.height);
-
-				This.width = qrCanvas.width + borderSize * 2;
-				This.height = qrCanvas.height + borderSize * 2;
-				This.x = 0;
-				This.y = 0;
-				This.wh = Math.min(This.width, This.height);
-
-				This.x = (This.wh >> 3) * 1;
-				This.y = (This.wh >> 3) * 1;
-				This.wh = (This.wh >> 3) * 6;
-
-				qrDrag.width = QRSize + borderSize * 2;
-				qrDrag.height = QRSize + borderSize * 2;
-				qrDrag.parentNode.setStyle('height', This.height);
-
-				This.draw();
-				document.id('qrTextButton').set('disabled', false);
-				window.tabs1.nextSlide();
+				This.loadPreviewImage(img);
+				document.id('qrGenerateButton').set('disabled', false);
+				window.tabs.nextSlide();
 			};
 			img.src = e.target.result;
 		});
@@ -558,7 +563,7 @@ function Clip() {
 		qr.generate({
 			text: document.id('qrText').value,
 			outlinenr: This.outlineNr,
-			dither: document.id('formId').getElement('input[name=optDither]:checked').value,
+			dither: document.id('qrForm').getElement('input[name=optDither]:checked').value,
 			colour: This.colour,
 		});
 	}
@@ -573,7 +578,7 @@ function Clip() {
 		qr.generate({
 			text: document.id('qrText').value,
 			outlinenr: This.outlineNr,
-			dither: document.id('formId').getElement('input[name=optDither]:checked').value,
+			dither: document.id('qrForm').getElement('input[name=optDither]:checked').value,
 			colour: This.colour,
 		});
 	}
@@ -588,7 +593,7 @@ function Clip() {
 				el.removeClass('active');
 			}
 		}
-		window.tabs1.nextSlide();
+		window.tabs.nextSlide();
 		this.outlineNr = nr;
 		this.draw();
 	}
@@ -606,17 +611,17 @@ function Clip() {
 
 /*
 				<div>
-					<canvas id="qr_canvas" height="16"></canvas>
-					<div id="draggables">
-					  <canvas id="qr_drag" class="dragview"  style="cursor: move; height: 16px;"></canvas>
-					  <div class="dragthumb" style="cursor: nw-resize"></div>
-					  <div class="dragthumb" style="cursor: n-resize"></div>
-					  <div class="dragthumb" style="cursor: ne-resize"></div>
-					  <div class="dragthumb" style="cursor: w-resize"></div>
-					  <div class="dragthumb" style="cursor: e-resize"></div>
-					  <div class="dragthumb" style="cursor: sw-resize"></div>
-					  <div class="dragthumb" style="cursor: s-resize"></div>
-					  <div class="dragthumb" style="cursor: se-resize"></div>
+					<canvas id="qrCanvas" height="16"></canvas>
+					<div id="dragables">
+					  <canvas id="qrDrag" class="qrDragView"  style="cursor: move; height: 16px;"></canvas>
+					  <div class="qrDragThumb" style="cursor: nw-resize"></div>
+					  <div class="qrDragThumb" style="cursor: n-resize"></div>
+					  <div class="qrDragThumb" style="cursor: ne-resize"></div>
+					  <div class="qrDragThumb" style="cursor: w-resize"></div>
+					  <div class="qrDragThumb" style="cursor: e-resize"></div>
+					  <div class="qrDragThumb" style="cursor: sw-resize"></div>
+					  <div class="qrDragThumb" style="cursor: s-resize"></div>
+					  <div class="qrDragThumb" style="cursor: se-resize"></div>
 					</div>
 				</div>
 */
@@ -626,7 +631,7 @@ let Tabs = new Class({
 	Implements: [Options, Events],
 
 	options: {
-		fps: 120,
+		fps: 50,
 		duration: 400,
 		transition: 'expo:in:out',
 	},
@@ -640,15 +645,11 @@ let Tabs = new Class({
 		this.tabsList = this.tabsElement.getChildren('li');
 		this.contentsList = this.contentsElement.getChildren('div');
 
-		this.windowWidth = this.contentsList[0].getSize().x;
-		this.currentPosition = 0;
-
-		this.contentsElement.setStyle('left', this.currentPosition + 'px');
+		this.contentsElement.setStyle('left', 0);
 		this.currentIndex = 0;
 		this.tabsCount = this.tabsList.length;
 
 		this.activeTab = this.tabsList[this.currentIndex].addClass(this.options.activeClass);
-		this.activeContents = this.contentsList[this.currentIndex];
 
 		this.tabsList.each(function (tab, i) {
 			this.setupTabs(tab, this.contentsList[i], i);
@@ -657,23 +658,23 @@ let Tabs = new Class({
 
 	setupTabs: function (tab, contents, i) {
 		tab.addEvent('mousedown', function (e) {
-			if (tab != this.activeTab) {
+			if (true || tab != this.activeTab) {
 				this.activeTab.removeClass('active');
 				this.activeTab = tab;
 				this.activeTab.addClass('active');
 
-				let d = (i - this.currentIndex) * this.windowWidth;
-				this.currentPosition -= d;
 				this.slideFx = new Fx.Morph(this.contentsElement, {
 					fps: this.options.fps,
+					unit: 'em',
 					duration: this.options.duration,
 					transition: this.options.transition,
 					onComplete: function () {
 						clip.draw();
 					},
 				});
+
 				this.slideFx.start({
-					left: this.currentPosition + 'px'
+					left: (-i * 30)
 				});
 
 				this.currentIndex = i;
@@ -700,8 +701,71 @@ let Tabs = new Class({
 
 });
 
+/* navbar [singleline] height = 1/3 of tail (10%) of wrapper (90%) of client-height. Line height = 60% of navbar height */
+function dofontresize() {
+	document.body.style.lineHeight = 1.25;
+
+	let qrForm = document.id('qrForm');
+
+	// main width/height in pixels
+	let mainWH = document.id('main').getSize();
+	let mainW = mainWH.x;
+	let mainH = mainWH.y;
+
+	// form height / width in 'em';
+	let formH = 30 + 1.25 + 2 * .3 + 2 * .6; // qrForm.height
+	let formW = 30.0; // qrForm.width
+	let formAspect = formH / formW;
+
+	if (document.body.clientWidth / document.body.clientHeight > 1) {
+		/*
+			 * landscape
+			 */
+
+		// scale body.fontSize
+		let lineHeight = document.body.clientHeight * 0.96 * 0.2 / 8; /* 8 lines per QR */
+		bodyFontSize = lineHeight / 1.25;
+		document.body.style.fontSize = Math.max(bodyFontSize, 1) + 'px';
+
+		// form width should match maximum form height (mainH) AND form width should scale to 30em
+		let W = mainH * formW / formH;
+		qrForm.style.fontSize = (W / 30) + 'px';
+	} else {
+		/*
+			 * portrait
+			 */
+
+		// scale body.fontSize
+		let lineHeight = document.body.clientWidth / formAspect * 0.96 * 0.2 / 8; /* 8 lines per QR */
+		bodyFontSize = lineHeight / 1.25;
+		document.body.style.fontSize = Math.max(bodyFontSize, 1) + 'px';
+
+		if (mainW / mainH > 1) {
+			// form width should match maximum form height (mainH) AND form width should scale to 30em
+			let W = mainH * formW / formH;
+			qrForm.style.fontSize = (W / 30) + 'px';
+		} else {
+			// form width is 90% of mainW AND form width should scale to 30em
+			qrForm.style.fontSize = ((mainW * 0.9) / 30) + 'px';
+		}
+	}
+
+	return true;
+}
+
+
 window.addEvent('domready', function () {
+	dofontresize();
+
 	qr = new QR();
 	clip = new Clip();
-	tabs1 = new Tabs($$('.tabsWindow .tabs'), $$('.contentsSlider'), {});
+	tabs = new Tabs($$('.tabPane .tabs'), $$('.qrContentSlider'), {});
+
+	window.addEvent('resize', function () {
+		// set fontsize
+		dofontresize();
+		// resize preview image
+		if (clip.wh)
+			clip.loadPreviewImage(clip.image);
+	});
 });

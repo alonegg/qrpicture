@@ -14,6 +14,7 @@ SITEFILES = \
 	www.qrpicture.com/qrscq-mask-93x93.png \
 	www.qrpicture.com/MooTools-Core-1.6.0.js \
 	www.qrpicture.com/MooTools-More-1.6.0.js \
+	www.qrpicture.com/qrpicture.css \
 	www.qrpicture.com/qrpicture.js \
 	www.qrpicture.com/robots.txt \
 	www.qrpicture.com/status.php \
@@ -61,4 +62,4 @@ uninstall-local:
 	$(RM) $(prefix)/assets/{eVpdGC-186x186.png,index.html,outline0-97x97.png,outline1-97x97.png,outline2-97x97.png,outline3-97x97.png,outline4-97x97.png,outline5-97x97.png,p2G4MC-186x186.png,qrAwesome.anim.col.210x210.gif,qrSpiral.anim.col.210x210.gif}
 	$(RM) $(prefix)/bin/index.html
 	$(RM) $(prefix)/images/index.html
-	$(RM) $(prefix)/{config.php,favicon.ico,index.php,mask-93x93.png,MooTools-Core-1.6.0.js,MooTools-More-1.6.0.js,qrcode-mask-93x93.png,qrpicture.js,qrscq-mask-93x93.png,robots.txt,status.php,submit.php,worker.php,worker.sh}
+	$(RM) $(prefix)/{config.php,favicon.ico,index.php,mask-93x93.png,MooTools-Core-1.6.0.js,MooTools-More-1.6.0.js,qrcode-mask-93x93.png,qrpicture.css,qrpicture.js,qrscq-mask-93x93.png,robots.txt,status.php,submit.php,worker.php,worker.sh}
