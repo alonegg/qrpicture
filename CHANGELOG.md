@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ```
+2020-09-03 01:12:38 Reformat javascript and replace `var` with `let`.
 2020-09-03 00:43:20 Fix asset and repository names.
 ```
 
