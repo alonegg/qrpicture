@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [Release 1.2.0] 2020-09-03 01:22:40
+
+Redesigned html/css from scratch for highly responsive mobile/desktop friendly site.
+
 ```
 2020-09-03 01:15:27 Redesigned html/css from scratch and updates js accordingly.
 2020-09-03 01:12:38 Reformat javascript and replace `var` with `let`.
@@ -38,5 +42,6 @@ Most notably worker processes need to be manually started.
 2020-08-13 21:01:10 Reconstructed most of the functionality from backups.
 ```
 
-[Unreleased]: https://github.com/xyzzy/qrpicture/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/xyzzy/qrpicture/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/xyzzy/qrpicture/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/xyzzy/qrpicture/compare/v1.0.0...v1.1.0
