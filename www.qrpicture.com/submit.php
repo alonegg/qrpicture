@@ -38,7 +38,7 @@ if (!$result) die(json_encode(array('error' => 'Invalid query: ' . $db->error)))
 $options = array(
 	'text' => @$_POST['text'],
 	'outlinenr' => @$_POST['outlinenr'],
-	'dither' => @$_POST['dither'],
+	'numcolour' => @$_POST['numcolour'],
 	'colour' => @$_POST['colour']
 );
 if (isset($_POST['highcontrast'])) {
@@ -81,11 +81,12 @@ for ($retry = 0; $retry < 10; $retry++) {
 if (!$jobId)
 	die(json_encode(array('error' => 'Failed to create Job ID')));
 
-$query = 'INSERT INTO queue (jobid, options, txt, outlinenr, imageb64) VALUES (' .
+$query = 'INSERT INTO queue (jobid, options, txt, outlinenr, numcolour, imageb64) VALUES (' .
 	'"' . $db->real_escape_string($jobId) . '",' .
 	'"' . $db->real_escape_string(json_encode($options)) . '",' .
 	'"' . $db->real_escape_string($options['text']) . '",' .
 	'"' . $db->real_escape_string($options['outlinenr']) . '",' .
+	'"' . $db->real_escape_string($options['numcolour']) . '",' .
 	'"' . $db->real_escape_string($imageB64) . '")';
 
 $result = $db->query($query) or die(json_encode(array('error' => 'Invalid query: ' . $db->error)));

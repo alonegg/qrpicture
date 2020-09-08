@@ -126,16 +126,16 @@ require('config.php');
 								</ul>
 
 								<div class="radioWrapper">
-									<input type="radio" name="optDither" id="optDither0" value="0"/><span class="checkmark"></span>
-									<label for="optDither0">Black/White</label>
+									<label for="optNumColour2">
+										<input type="radio" name="optNumColour" id="optNumColour2" value="2"/><span class="checkmark"></span>
+										Black/White
+									</label>
 								</div>
 								<div class="radioWrapper">
-									<input type="radio" name="optDither" id="optDither1" value="1"/><span class="checkmark"></span>
-									<label for="optDither1">Colour drawing (large areas of same colour)</label>
-								</div>
-								<div class="radioWrapper">
-									<input type="radio" name="optDither" id="optDither2" value="2" checked="checked"/><span class="checkmark"></span>
-									<label for="optDither2">Colour picture (a lot of colours/shades)</label>
+									<label for="optNumColour64">
+										<input type="radio" name="optNumColour" id="optNumColour64" value="64" checked="checked"/><span class="checkmark"></span>
+										Colour
+									</label>
 								</div>
 
 								<div class="buttonWrapper">

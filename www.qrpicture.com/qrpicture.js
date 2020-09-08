@@ -319,6 +319,7 @@ function Clip() {
 	this.clipData = null;		// The clipped data
 	this.seed = [];				// seeds for generating mask
 	this.outlineNr = 0;
+	this.numColour = 64;		// number of colours in final image
 	this.MaxOutline = 4;		// maximum number of outline to choose from
 
 	let QRSize = 93;
@@ -556,14 +557,19 @@ function Clip() {
 	this.onGenerate = function (evt) {
 		if (!window.clip.clipData) return;
 
+		// @date 2020-09-08 16:31:15
+		// number of final colours are currently 2 or 30.
+		This.numColour = parseInt(document.id('qrForm').getElement('input[name=optNumColour]:checked').value);
+
+		This.colour = 20; // colour threshold
+
 		// start handler
-		This.colour = 20;
 //		hide until functionality reconstructed
 //		document.id('regenlevel').innerHTML = '+'+((This.colour-18)>>1);
 		qr.generate({
 			text: document.id('qrText').value,
 			outlinenr: This.outlineNr,
-			dither: document.id('qrForm').getElement('input[name=optDither]:checked').value,
+			numcolour: This.numColour,
 			colour: This.colour,
 		});
 	}
@@ -578,7 +584,7 @@ function Clip() {
 		qr.generate({
 			text: document.id('qrText').value,
 			outlinenr: This.outlineNr,
-			dither: document.id('qrForm').getElement('input[name=optDither]:checked').value,
+			numcolour: This.numColour,
 			colour: This.colour,
 		});
 	}

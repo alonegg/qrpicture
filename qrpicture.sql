@@ -8,6 +8,7 @@ CREATE TABLE `queue` (
   `imagefilename` text NOT NULL DEFAULT '',
   `txt` text NOT NULL DEFAULT '',
   `outlinenr` int(11) NOT NULL DEFAULT 0,
+  `numcolour` int(11) NOT NULL DEFAULT 0,
   `imageb64` mediumtext DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `jobid` (`jobid`(6)),

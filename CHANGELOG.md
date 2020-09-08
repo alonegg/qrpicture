@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+```
+2020-09-08 16:15:59 Fixed xyzzy/qrpicture#7 - Add `numColour`.
+```
+
 ## [Release 1.2.0] 2020-09-03 01:22:40
 
 Redesigned html/css from scratch for highly responsive mobile/desktop friendly site.

@@ -76,7 +76,8 @@ for (; ;) {
 
 	$jobId = $row['jobid'];
 	$txt = $row['txt'];
-	$outlineNr = $row['outlinenr'];
+	$outlineNr = intval($row['outlinenr']);
+	$numColour = intval($row['numcolour']);
 	$rawImg = base64_decode($row['imageb64']);
 
 	$rawImg = str_replace("data:image/png;base64,", "", $row['imageb64']);
@@ -113,15 +114,25 @@ for (; ;) {
 	if (empty($txt))
 		$txt = $sitename;
 
-	$cmd = $docroot . '/bin/qrwork "' . addslashes($txt) . '" images/' . $jobId . '-93x93-upload.png images/' . $jobId . '-93x93-mask.png --outline=' . $outlineNr . ' --maxsalt=0';
-	$json = `$cmd`;
+	if ($numColour <= 2) {
+		// monochrome
+		$cmd = $docroot . '/bin/qrwork "' . addslashes($txt) . '" images/' . $jobId . '-93x93-upload.png images/' . $jobId . '-93x93.png --outline=' . $outlineNr . ' --maxsalt=0';
+		$json = `$cmd`;
 
-	$cmd = $docroot . '/bin/qrscq images/' . $jobId . '-186x186-upload.png images/' . $jobId . '-93x93-mask.png 250 images/' . $jobId . '-186x186.png --filter=1';
-	$json = `$cmd`;
+		// update status
+		$query = 'UPDATE queue SET status=2, result="' . addslashes($json) . '", imagefilename="' . addslashes('images/' . $jobId . '-93x93.png') . '" WHERE id=' . $rowId;
+		$result = $db->query($query) or die(json_encode(array('error' => 'Invalid query: ' . $db->error)));
+	} else {
+		// colour
+		$cmd = $docroot . '/bin/qrwork "' . addslashes($txt) . '" images/' . $jobId . '-93x93-upload.png images/' . $jobId . '-93x93-mask.png --outline=' . $outlineNr . ' --maxsalt=0';
+		$json = `$cmd`;
 
-	// update status
-	$query = 'UPDATE queue SET status=2, result="' . addslashes($json) . '", imagefilename="' . addslashes('images/' . $jobId . '-186x186.png') . '" WHERE id=' . $rowId;
-	$result = $db->query($query) or die(json_encode(array('error' => 'Invalid query: ' . $db->error)));
+		$cmd = $docroot . '/bin/qrscq images/' . $jobId . '-186x186-upload.png images/' . $jobId . '-93x93-mask.png '.addslashes($numColour).' images/' . $jobId . '-186x186.png --filter=1';
+		$json = `$cmd`;
 
+		// update status
+		$query = 'UPDATE queue SET status=2, result="' . addslashes($json) . '", imagefilename="' . addslashes('images/' . $jobId . '-186x186.png') . '" WHERE id=' . $rowId;
+		$result = $db->query($query) or die(json_encode(array('error' => 'Invalid query: ' . $db->error)));
+	}
 }
 die("Empty");
