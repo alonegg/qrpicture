@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [Release 1.3.0] 2020-09-08 18:22:54
+
+Enabled octree for initial palette for better colour results.
+
+NOTE:	When upgrading from v1.2.0 you need to manually upgrade the database table:
+	`alter table queue add numcolour int not null default 0 after outlinenr;` 
+
 ```
 2020-09-08 18:17:51 Lost+Found.
 2020-09-08 18:10:44 Fixed xyzzy/qrpicture#9 - Enable octree for initial palette.
@@ -49,6 +56,7 @@ Most notably worker processes need to be manually started.
 2020-08-13 21:01:10 Reconstructed most of the functionality from backups.
 ```
 
-[Unreleased]: https://github.com/xyzzy/qrpicture/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/xyzzy/qrpicture/compare/v1.3.0...HEAD
+[1.3.0]: https://github.com/xyzzy/qrpicture/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/xyzzy/qrpicture/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/xyzzy/qrpicture/compare/v1.0.0...v1.1.0
