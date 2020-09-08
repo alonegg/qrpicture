@@ -117,7 +117,7 @@ for (; ;) {
 	// @date 2020-09-08 17:48:34
 	// escape baskslash/double-quote but not single quote
 	$txt = str_replace("\\", "\\\\", $txt);
-	$txt = str_replace("\", "\\\", $txt);
+	$txt = str_replace("\"", "\\\"", $txt);
 
 	if ($numColour <= 2) {
 		// monochrome
@@ -132,7 +132,7 @@ for (; ;) {
 		$cmd = $docroot . '/bin/qrwork "'.$txt.'" images/' . $jobId . '-93x93-upload.png images/' . $jobId . '-93x93-mask.png --outline=' . $outlineNr . ' --maxsalt=0';
 		$json = `$cmd`;
 
-		$cmd = $docroot . '/bin/qrscq images/' . $jobId . '-186x186-upload.png images/' . $jobId . '-93x93-mask.png '.addslashes($numColour).' images/' . $jobId . '-186x186.png --filter=1';
+		$cmd = $docroot . '/bin/qrscq images/' . $jobId . '-186x186-upload.png images/' . $jobId . '-93x93-mask.png '.addslashes($numColour).' images/' . $jobId . '-186x186.png --filter=1 --palette=octree';
 		$json = `$cmd`;
 
 		// update status

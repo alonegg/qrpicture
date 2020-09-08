@@ -1409,8 +1409,8 @@ FILE *fil;
 	opt_palette_size = strtol(argv[optind++], NULL, 10);
 	opt_output = argv[optind++];
 
-	if (opt_palette_size <= 1) {
-		fprintf(stderr, "Number of colors must be at least 2\n");
+	if (opt_palette_size <= 1 || opt_palette_size > 255) {
+		fprintf(stderr, "Number of colors must be in range 2..255\n");
 		return -1;
 	}
 
@@ -1525,6 +1525,8 @@ opt_width = opt_height = 186;
 
 //--------
 	if (opt_palette_size > 2 && opt_palette && strcmp(opt_palette, "octree") == 0) {
+		unsigned numSafe = 0, numUnsafe = 0;
+		
 		node_heap heap = { 0, 0, 0 };
 		oct_node root = node_new(0, 0, 0);
 		for (int y = 0; y < height; y++) {
@@ -1533,24 +1535,72 @@ opt_width = opt_height = 186;
 				int r = ((v>>16) & 0xFF);
 				int g = ((v>>8) & 0xFF);
 				int b = (v & 0xFF);
+				
+				/*
+				 * @date 2020-09-08 13:34:38
+				 * If colour is QR-unsafe, change the contrast so it becomes safe.
+				 * NOTE: these are initial colours that get updated after first pass.
+				 */
+				if (1) {
+					double gs = TO_GRAY(r / 255.0, g / 255.0, b / 255.0);
+
+					double threshlow = 0.5 - opt_thresh;
+					double threshhigh = 0.5 + opt_thresh;
+					if (gs > threshlow && gs < threshhigh) {
+						numUnsafe++;
+						if (gs < 0.5) {
+							r = r * (threshlow) / gs;
+							g = g * (threshlow) / gs;
+							b = b * (threshlow) / gs;
+						} else {
+							r = 255 - ((255 - r) * (1 - threshhigh) / (1 - gs));
+							g = 255 - ((255 - g) * (1 - threshhigh) / (1 - gs));
+							b = 255 - ((255 - b) * (1 - threshhigh) / (1 - gs));
+						}
+					} else {
+						numSafe++;
+					}
+				}
+				
 				heap_add(&heap, node_insert(root, r,g,b));
 			}
 		}
- 
+		if (numSafe + numUnsafe)
+			logline("image consists of %2.1f%% QR-safe colours\n", numSafe * 100.0 / (numSafe + numUnsafe));
+			
+		// temporarily reserve last two colours for black/white
+		opt_palette_size -= 2;
+		
+		// merge colours until final palette count
 		while (heap.n > opt_palette_size + 1)
 			heap_add(&heap, node_fold(pop_heap(&heap)));
  
+		// convert tree to palette
 		for (int i = 1; i < heap.n; i++) {
 			oct_node got = heap.buf[i];
 			double c = got->count;
 			got->r = got->r / c + .5;
 			got->g = got->g / c + .5;
 			got->b = got->b / c + .5;
-			printf("%2d | %3u %3u %3u (%d pixels)\n",	i, got->r, got->g, got->b, got->count);
+
+			if (0) {
+				double gs = TO_GRAY(got->r / 255.0, got->g / 255.0, got->b / 255.0);
+				printf("%2d | %3u %3u %3u | %.2f (%d pixels)\n", i, got->r, got->g, got->b, gs, got->count);
+			}
+
 			palette[i-1].r = got->r / 255.0;
 			palette[i-1].g = got->g / 255.0;
 			palette[i-1].b = got->b / 255.0;
 		}
+		
+		// force last two colours as black/white
+		opt_palette_size += 2;
+		palette[opt_palette_size-2].r = 0;
+		palette[opt_palette_size-2].g = 0;
+		palette[opt_palette_size-2].b = 0;
+		palette[opt_palette_size-1].r = 1;
+		palette[opt_palette_size-1].g = 1;
+		palette[opt_palette_size-1].b = 1;
 	} else {
 		palette[opt_palette_size-2].r = 0;
 		palette[opt_palette_size-2].g = 0;
