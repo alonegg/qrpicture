@@ -61,7 +61,7 @@ require('config.php');
 					<div class="contentViewport">
 						<div class="qrContentSlider">
 							<div id="step1" class="contentPane">
-								<p style="margin: 0"><b>Select your image</b></p>
+								<p><b>Select your image</b></p>
 								<ul>
 									<li>will be resized to 93x93 pixels</li>
 									<li>will be blurred and dithered just as the preview</li>
@@ -72,7 +72,7 @@ require('config.php');
 								<input type="file" onchange="window.clip.onFileUpload(event)" name="files[]" id="qrlogo_files" size="50">
 							</div>
 							<div id="step2" class="contentPane">
-								<p style="margin: 0"><b>Select outline</b></p>
+								<p><b>Select outline</b></p>
 								<p id="outlineOverview">
 									<img id="qrOutline0" class="outlineImage" src="assets/outline0-97x97.png" align="absmiddle" onclick="clip.onSetOutline(event,0)" alt="round"/>
 									<img id="qrOutline1" class="outlineImage" src="assets/outline1-97x97.png" align="absmiddle" onclick="clip.onSetOutline(event,1)" alt="corners"/>
@@ -157,7 +157,7 @@ require('config.php');
 	<div class="headtail-right"><img src="assets/p2G4MC-186x186.png" alt="example"/></div>
 	<div class="headtail-middle">
 		<div>
-			<p id="tail1">Sources to this site can be found <a href="https://github.com/xyzzy/qrpicture">https://github.com/xyzzy/qrpicture</a>.</p>
+			<p id="tail1">Sources of this site can be found <a href="https://github.com/xyzzy/qrpicture" target="_blank">https://github.com/xyzzy/qrpicture</a>.</p>
 			<p id="tail2">This service is available in the hope that it will be useful, but without any warranty;
 				without even the implied warranty of merchantability or fitness for a particular purpose.</p>
 		</div>

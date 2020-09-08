@@ -59,7 +59,7 @@ for (; ;) {
 	$row = $result->fetch_row();
 	$rowId = $row[0];
 	if (!$rowId)
-		die("Empty"); // die(json_encode(array('error' => 'Queue empty')));
+		die(); // die(json_encode(array('error' => 'Queue empty')));
 
 	// mark busy
 	$query = 'UPDATE queue SET status=1 WHERE id=' . $rowId;
@@ -140,4 +140,3 @@ for (; ;) {
 		$result = $db->query($query) or die(json_encode(array('error' => 'Invalid query: ' . $db->error)));
 	}
 }
-die("Empty");
