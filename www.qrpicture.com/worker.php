@@ -114,9 +114,14 @@ for (; ;) {
 	if (empty($txt))
 		$txt = $sitename;
 
+	// @date 2020-09-08 17:48:34
+	// escape baskslash/double-quote but not single quote
+	$txt = str_replace("\\", "\\\\", $txt);
+	$txt = str_replace("\", "\\\", $txt);
+
 	if ($numColour <= 2) {
 		// monochrome
-		$cmd = $docroot . '/bin/qrwork "' . addslashes($txt) . '" images/' . $jobId . '-93x93-upload.png images/' . $jobId . '-93x93.png --outline=' . $outlineNr . ' --maxsalt=0';
+		$cmd = $docroot . '/bin/qrwork "'.$txt.'" images/' . $jobId . '-93x93-upload.png images/' . $jobId . '-93x93.png --outline=' . $outlineNr . ' --maxsalt=0';
 		$json = `$cmd`;
 
 		// update status
@@ -124,7 +129,7 @@ for (; ;) {
 		$result = $db->query($query) or die(json_encode(array('error' => 'Invalid query: ' . $db->error)));
 	} else {
 		// colour
-		$cmd = $docroot . '/bin/qrwork "' . addslashes($txt) . '" images/' . $jobId . '-93x93-upload.png images/' . $jobId . '-93x93-mask.png --outline=' . $outlineNr . ' --maxsalt=0';
+		$cmd = $docroot . '/bin/qrwork "'.$txt.'" images/' . $jobId . '-93x93-upload.png images/' . $jobId . '-93x93-mask.png --outline=' . $outlineNr . ' --maxsalt=0';
 		$json = `$cmd`;
 
 		$cmd = $docroot . '/bin/qrscq images/' . $jobId . '-186x186-upload.png images/' . $jobId . '-93x93-mask.png '.addslashes($numColour).' images/' . $jobId . '-186x186.png --filter=1';

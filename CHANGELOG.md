@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ```
+2020-09-08 17:49:45 Fixed xyzzy/qrpicture#8 - Escape quotes in payload text.
 2020-09-08 16:15:59 Fixed xyzzy/qrpicture#7 - Add `numColour`.
 ```
 
