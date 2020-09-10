@@ -6,9 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+```
+2020-09-10 12:24:56 Fixed 'tail' layout and tweaked theme.
+```
+
 ## [Release 1.3.0] 2020-09-08 18:22:54
 
-Enabled octree for initial palette for better colour results.
+Enabled octree to create initial palette for better colour results.
 
 NOTE:	When upgrading from v1.2.0 you need to manually upgrade the database table:
 	`alter table queue add numcolour int not null default 0 after outlinenr;` 

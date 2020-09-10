@@ -123,6 +123,7 @@ require('config.php');
 								<ul>
 									<li>please be patient, generator has a queue</li>
 									<li>right-click/long-press to save</li>
+									<li>the white border size is specification mandatory</li>
 								</ul>
 
 								<div class="radioWrapper">
@@ -151,15 +152,15 @@ require('config.php');
 			</form>
 		</div>
 	</div>
-</div>
-<div id="tail" class="headtail">
-	<div class="headtail-left"><img src="assets/eVpdGC-186x186.png" alt="example"/></div>
-	<div class="headtail-right"><img src="assets/p2G4MC-186x186.png" alt="example"/></div>
-	<div class="headtail-middle">
-		<div>
-			<p id="tail1">Sources of this site can be found <a href="https://github.com/xyzzy/qrpicture" target="_blank">https://github.com/xyzzy/qrpicture</a>.</p>
-			<p id="tail2">This service is available in the hope that it will be useful, but without any warranty;
-				without even the implied warranty of merchantability or fitness for a particular purpose.</p>
+	<div id="tail" class="headtail">
+		<div class="headtail-left"><img src="assets/eVpdGC-186x186.png" alt="example"/></div>
+		<div class="headtail-right"><img src="assets/p2G4MC-186x186.png" alt="example"/></div>
+		<div class="headtail-middle">
+			<div>
+				<p id="tail1">Sources of this site can be found <a href="https://github.com/xyzzy/qrpicture" target="_blank">https://github.com/xyzzy/qrpicture</a>.</p>
+				<p id="tail2">This service is available in the hope that it will be useful, but without any warranty;
+					without even the implied warranty of merchantability or fitness for a particular purpose.</p>
+			</div>
 		</div>
 	</div>
 </div>

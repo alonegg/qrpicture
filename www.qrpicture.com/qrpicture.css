@@ -61,6 +61,7 @@ body {
     font-weight: normal;
     border: none;
     overflow: hidden; /* firefox will otherwise display scrollbars when extremely narrow */
+    background-color: #ccc;
 }
 
 div#wrapper {
@@ -189,7 +190,6 @@ p#head2 {
 p#tail1 {
     font-size: 1em;
     text-align: center;
-    font-weight: bold;
 }
 p#tail1 a {
     text-decoration: none;
@@ -277,10 +277,17 @@ form {
 .button {
     margin: .6em .3em;
     padding: .3em .6em;
-    background: #ccc;
+    background: #888;
     color: #000;
     border-radius: 1em;
     border: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.button:hover, .button:disabled {
+	background: #aaa;
 }
 
 /*
@@ -304,13 +311,18 @@ ul.tabs li {
     border-radius: 1em;
 
     /*text-shadow: .1em .1em .1em #eee;*/
-    background: #ccc;
+    background: #888;
     font-weight: bold;
     cursor: default;
 }
 
+ul.tabs li ~ :hover {
+	background: #aaa;
+}
+
 ul.tabs li.active {
-    background: #888;
+    background: #444;
+    color: #fff;
 }
 
 /*
@@ -551,6 +563,7 @@ img.outlineImage.active {
 
 div#qrResult {
     text-align: center;
+    margin: .5em;
 }
 
 div#qrResult img {
