@@ -47,82 +47,84 @@ span.xxlarge { font-size: 2em; }
  *	top-level Layout
  */
 body {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: 0;
-    padding: 0;
-    font-family: Verdana, Geneva, sans-serif;
-    font-size: 10pt;
-    font-weight: normal;
-    border: none;
-    overflow: hidden; /* firefox will otherwise display scrollbars when extremely narrow */
-    background-color: #ccc;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10pt;
+	font-weight: normal;
+	border: none;
+	overflow: hidden; /* firefox will otherwise display scrollbars when extremely narrow */
+	background-color: #ccc;
 }
 
 div#wrapper {
-    position: absolute;
-    width: 96%;
-    height: 96%;
-    top: 2%;
-    right: 2%;
-    bottom: 2%;
-    left: 2%;
-    margin: 0;
-    padding: 0;
+	position: absolute;
+	width: 96%;
+	height: 96%;
+	top: 2%;
+	right: 2%;
+	bottom: 2%;
+	left: 2%;
+	margin: 0;
+	padding: 0;
 }
 
 div#head {
-    position: absolute;
-    width: 100%;
-    height: 20%;
-    top: 0;
-    left: 0;
+	position: absolute;
+	width: 100%;
+	height: 20%;
+	top: 0;
+	left: 0;
 }
 
 div#tail {
-    position: absolute;
-    width: 100%;
-    height: 20%;
-    left: 0;
-    bottom: 0;
+	position: absolute;
+	width: 100%;
+	height: 20%;
+	left: 0;
+	bottom: 0;
 }
 
 div.headtail-left {
-    position: absolute;
-    width: 20%;
-    height: 100%;
-    top: 0;
-    left: 0;
+	position: absolute;
+	width: 20%;
+	height: 100%;
+	top: 0;
+	left: 0;
 }
+
 div.headtail-middle {
-    position: absolute;
-    width: 60%;
-    height: 100%;
-    top: 0;
-    left: 20%;
-    overflow: hidden;
+	position: absolute;
+	width: 60%;
+	height: 100%;
+	top: 0;
+	left: 20%;
+	overflow: hidden;
 }
+
 div.headtail-right {
-    position: absolute;
-    width: 20%;
-    height: 100%;
-    top: 0;
-    right: 0;
+	position: absolute;
+	width: 20%;
+	height: 100%;
+	top: 0;
+	right: 0;
 }
 
 div#main {
-    position: absolute;
-    width: 100%;
-    height: 60%;
-    top: 20%;
-    right: 0;
-    bottom: 20%;
-    left: 0;
+	position: absolute;
+	width: 100%;
+	height: 60%;
+	top: 20%;
+	right: 0;
+	bottom: 20%;
+	left: 0;
 }
 
 /*
@@ -139,66 +141,71 @@ div#main {
  */
 
 div.headtail img {
-    position: absolute;
-    width: 10em;
-    height: 10em;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left:0;
-    margin: auto; /* center */
+	position: absolute;
+	width: 10em;
+	height: 10em;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto; /* center */
 }
 
 div.headtail-middle div {
-    /* center div */
-    position: absolute;
-    width: 94%;
-    top: 50%;
-    right: 3%;
-    left: 3%;
-    margin: auto; /* center */
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+	/* center div */
+	position: absolute;
+	width: 94%;
+	top: 50%;
+	right: 3%;
+	left: 3%;
+	margin: auto; /* center */
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
 }
 
 div.main-middle {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: 0;
-    padding: 0;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
 }
 
 div.head p, div.tail p {
-    margin: 0.8em 0; /* controlled line-separator margin around <p> */
+	margin: 0.8em 0; /* controlled line-separator margin around <p> */
 }
+
 p#head1 {
-    font-size: 2em;
-    text-align: center;
-    font-weight: bold;
+	font-size: 2em;
+	text-align: center;
+	font-weight: bold;
 }
+
 p#head2 {
-    font-size: 1.125em;
-    text-align: center;
-    font-style: italic;
+	font-size: 1.125em;
+	text-align: center;
+	font-style: italic;
 }
+
 p#tail1 {
-    font-size: 1em;
-    text-align: center;
+	font-size: 1em;
+	text-align: center;
 }
+
 p#tail1 a {
-    text-decoration: none;
-    white-space: nowrap;
+	text-decoration: none;
+	white-space: nowrap;
 }
+
 p#tail2 {
-    font-size: 0.6em;
-    text-align: center;
-    font-style: italic;
+	font-size: 0.6em;
+	text-align: center;
+	font-style: italic;
 }
 
 /*
@@ -206,38 +213,38 @@ p#tail2 {
  */
 
 form {
-    font-size: calc(1em * 30 / (30 + 1.25 + 2*(.3 + .6))); /* = width/height. NOTE: this changed em. shrink so that height fits in 30em */
-    position: absolute;
-    width: 30em;
-    height: calc(30em + 1.25em + 2*(.3em + .6em)); /* tabPane.height + mainPane.height */
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto; /* center */
-    padding: 0;
+	font-size: calc(1em * 30 / (30 + 1.25 + 2 * (.3 + .6))); /* = width/height. NOTE: this changed em. shrink so that height fits in 30em */
+	position: absolute;
+	width: 30em;
+	height: calc(30em + 1.25em + 2 * (.3em + .6em)); /* tabPane.height + mainPane.height */
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto; /* center */
+	padding: 0;
 }
 
 .tabPane {
-    font-size: 0.88em; /* NOTE: this changed em. let all buttons fit on same line */
-    position: relative;
-    height: calc(1.25em + 2*.3em + 2*.6em); /* line-height + 2x li.padding + 2x li.margin */
-    margin: auto;  /* center */
-    padding: 0;
-    text-align: center;
+	font-size: 0.88em; /* NOTE: this changed em. let all buttons fit on same line */
+	position: relative;
+	height: calc(1.25em + 2 * .3em + 2 * .6em); /* line-height + 2x li.padding + 2x li.margin */
+	margin: auto; /* center */
+	padding: 0;
+	text-align: center;
 }
 
 .mainPane {
-    font-size: calc( 1em * 30 / (30 + 2*(.5 + .2))); /* NOTE: this changed em. scale inner width/height to match 30em*30em */
-    position: absolute;
-    width: 30em;
-    height: 30em;
-    right: 0;
-    bottom: 0;
-    left: auto;
-    margin: auto;  /* center */
-    padding: .5em;
-    border: .2em solid gray;
+	font-size: calc(1em * 30 / (30 + 2 * (.5 + .2))); /* NOTE: this changed em. scale inner width/height to match 30em*30em */
+	position: absolute;
+	width: 30em;
+	height: 30em;
+	right: 0;
+	bottom: 0;
+	left: auto;
+	margin: auto; /* center */
+	padding: .5em;
+	border: .2em solid gray;
 }
 
 /*
@@ -246,41 +253,43 @@ form {
 
 /* slider viewport */
 .contentViewport {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    border: none;
-    margin: 0;
-    overflow: hidden;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	border: none;
+	margin: 0;
+	overflow: hidden;
 }
+
 /* slider full-contents */
 .qrContentSlider {
-    position: relative;
-    width: 1000%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    border: none;
+	position: relative;
+	width: 1000%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	border: none;
 }
+
 /* slider tab pane */
 .contentPane {
-    position: relative;
-    float: left;
-    width: 10%;
-    height: 100%;
-    margin: 0;
+	position: relative;
+	float: left;
+	width: 10%;
+	height: 100%;
+	margin: 0;
 }
 
 /*
  *	button. Height = 3.05em = 1.25 (line height) + 2*(.6+.3) (border+padding)
  */
 .button {
-    margin: .6em .3em;
-    padding: .3em .6em;
-    background: #888;
-    color: #000;
-    border-radius: 1em;
-    border: none;
+	margin: .6em .3em;
+	padding: .3em .6em;
+	background: #888;
+	color: #000;
+	border-radius: 1em;
+	border: none;
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
@@ -295,25 +304,25 @@ form {
  */
 
 ul.tabs {
-    position: relative;
-    display: inline-block; /* shrink-to-fit and enable parent text-align */
-    height: calc(1.25em + 2*(.3em + .6em)); /* line-height + 2x (li.padding + li.margin) */
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
+	position: relative;
+	display: inline-block; /* shrink-to-fit and enable parent text-align */
+	height: calc(1.25em + 2 * (.3em + .6em)); /* line-height + 2x (li.padding + li.margin) */
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
 }
 
 ul.tabs li {
-    display: inline;
-    float: left;
-    -webkit-border-radius: 1em;
-    -moz-border-radius: 1em;
-    border-radius: 1em;
+	display: inline;
+	float: left;
+	-webkit-border-radius: 1em;
+	-moz-border-radius: 1em;
+	border-radius: 1em;
 
-    /*text-shadow: .1em .1em .1em #eee;*/
-    background: #888;
-    font-weight: bold;
-    cursor: default;
+	/*text-shadow: .1em .1em .1em #eee;*/
+	background: #888;
+	font-weight: bold;
+	cursor: default;
 }
 
 ul.tabs li ~ :hover {
@@ -321,8 +330,8 @@ ul.tabs li ~ :hover {
 }
 
 ul.tabs li.active {
-    background: #444;
-    color: #fff;
+	background: #444;
+	color: #fff;
 }
 
 /*
@@ -330,63 +339,63 @@ ul.tabs li.active {
  */
 
 .radioWrapper {
-    position: relative;
-    padding-left: 1.5em; /* distance checkmark-label */
-    margin: .3em 0; /* distance between lines */
-    cursor: pointer;
+	position: relative;
+	padding-left: 1.5em; /* distance checkmark-label */
+	margin: .3em 0; /* distance between lines */
+	cursor: pointer;
 }
 
 /* Hide the browser's default checkbox */
 .radioWrapper input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
 }
 
 /* Create a custom checkbox */
 .radioWrapper .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 1em;
-    width: 1em;
-    background-color: #eee;
-    border-radius: 100%;
-    border: .1em solid black;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 1em;
+	width: 1em;
+	background-color: #eee;
+	border-radius: 100%;
+	border: .1em solid black;
 }
 
 /* On mouse-over, add a grey background color */
 .radioWrapper:hover input ~ .checkmark {
-    background-color: #888;
+	background-color: #888;
 }
 
 /* When the radio button is checked, add a white background */
 .radioWrapper input:checked ~ .checkmark {
-    background-color: #fff;
+	background-color: #fff;
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
 .radioWrapper .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
+	content: "";
+	position: absolute;
+	display: none;
 }
 
 /* Show the indicator (dot/circle) when checked */
 .radioWrapper input:checked ~ .checkmark:after {
-    display: block;
+	display: block;
 }
 
 /* Style the indicator (dot/circle) */
 .radioWrapper .checkmark:after {
-    top: .1em;
-    left: .1em;
-    width: .8em;
-    height: .8em;
-    border-radius: 100%;
-    background: blue;
+	top: .1em;
+	left: .1em;
+	width: .8em;
+	height: .8em;
+	border-radius: 100%;
+	background: blue;
 }
 
 /*
@@ -394,8 +403,8 @@ ul.tabs li.active {
  */
 
 .contentPane ul {
-    margin: 1em;
-    padding-left: 1.5em;
+	margin: 1em;
+	padding-left: 1.5em;
 }
 
 /*
@@ -403,26 +412,26 @@ ul.tabs li.active {
  */
 
 .nextWrapper {
-    text-align: center;
-    width: 98%;
+	text-align: center;
+	width: 98%;
 }
 
 .nextWrapper button {
-    margin: .6em .3em;
-    padding: .3em .6em;
-    background: #ccc;
-    color: #000;
-    font-size: 1.125em;
-    font-weight: bold;
-    cursor: default;
+	margin: .6em .3em;
+	padding: .3em .6em;
+	background: #ccc;
+	color: #000;
+	font-size: 1.125em;
+	font-weight: bold;
+	cursor: default;
 }
 
 /*
  *	step 1 - File selector
  */
 #step1 input[type="file"] {
-    font-size: 1em;
-    border: none;
+	font-size: 1em;
+	border: none;
 }
 
 /*
@@ -430,18 +439,18 @@ ul.tabs li.active {
  */
 
 p#outlineOverview {
-    text-align: center;
+	text-align: center;
 }
 
 img.outlineImage {
-    margin: .3em;
-    border: none;
-    width: 40%;
+	margin: .3em;
+	border: none;
+	width: 40%;
 }
 
 img.outlineImage.active {
-    margin: .1em;
-    border: .2em solid blue;
+	margin: .1em;
+	border: .2em solid blue;
 }
 
 /*
@@ -449,69 +458,75 @@ img.outlineImage.active {
  */
 
 #step3 p {
-    margin: 0;
+	margin: 0;
 }
 
 #step3 .buttonWrapper {
-    position: absolute;
-    top: auto;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    text-align: center;
+	position: absolute;
+	top: auto;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	text-align: center;
 }
 
 #step3 button {
-    margin: .6em .3em 0 .3em;
-    font-size: 1.125em;
-    font-weight: bold;
+	margin: .6em .3em 0 .3em;
+	font-size: 1.125em;
+	font-weight: bold;
 }
 
 /* NOTE: maximize/balance qrPreview area by using mainPane.padding as margins for text and next button */
 #qrPreview {
-    position: absolute;
-    width: 100%;
-    height: auto;
-    top: calc(1em * 1.25 + 0.5em); /* lineheight + mainPane.padding */
-    right: 0;
-    bottom: calc(1em * 1.25 + 2*(.3em + .5em)); /* next button.lineHeight + 2*(button.padding + mainPane.padding). Note: marginBottom collapses with parent padding */
-    left: 0;
-    margin: auto;
-    padding: 0;
+	position: absolute;
+	width: 100%;
+	height: auto;
+	top: calc(1em * 1.25 + 0.5em); /* lineheight + mainPane.padding */
+	right: 0;
+	bottom: calc(1em * 1.25 + 2 * (.3em + .5em)); /* next button.lineHeight + 2*(button.padding + mainPane.padding). Note: marginBottom collapses with parent padding */
+	left: 0;
+	margin: auto;
+	padding: 0;
 }
+
 /* need wrapper to group qrCanvas and qrDraggables */
 #qrCanvasWrapper {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
 }
+
 #qrCanvas {
-    position: absolute;
-    /*border: .2em solid #fff;*/
+	position: absolute;
+	/*border: .2em solid #fff;*/
 }
+
 #qrDrag {
-    position: absolute;
-    border: none;
-    background: white;
+	position: absolute;
+	border: none;
+	background: white;
 }
+
 #qrDraggables {
-    position: absolute;
-    background: none;
+	position: absolute;
+	background: none;
 }
+
 .qrDragView {
-    position: absolute;
+	position: absolute;
 }
+
 .qrDragThumb {
-    position: absolute;
-    border: .1em solid black;
-    border-radius: 50%;
-    width: 2em;
-    height: 2em;
-    background: #0f0;
-    transform: translate(-1em, -1em);
+	position: absolute;
+	border: .1em solid black;
+	border-radius: 50%;
+	width: 2em;
+	height: 2em;
+	background: #0f0;
+	transform: translate(-1em, -1em);
 }
 
 /*
@@ -519,26 +534,26 @@ img.outlineImage.active {
  */
 
 #step4 .buttonWrapper {
-    width: 100%;
-    text-align: center;
+	width: 100%;
+	text-align: center;
 }
 
 #step4 button {
-    font-size: 1.125em;
-    font-weight: bold;
+	font-size: 1.125em;
+	font-weight: bold;
 }
 
 .textareaWrapper {
-    text-align: center;
-    width: 98%;
+	text-align: center;
+	width: 98%;
 }
 
 .textareaWrapper textarea {
-    border: .1em solid black;
-    width: 100%;
-    height: 25%;
-    font-size: 1em;
-    resize: none;
+	border: .1em solid black;
+	width: 100%;
+	height: 25%;
+	font-size: 1em;
+	resize: none;
 }
 
 /*
@@ -546,26 +561,26 @@ img.outlineImage.active {
  */
 
 #step5 .buttonWrapper {
-    width: 100%;
-    text-align: center;
+	width: 100%;
+	text-align: center;
 }
 
 #step5 button {
-    font-size: 1.125em;
-    font-weight: bold;
-    margin: .3em .6em 0 .6em; /* qrResult has a big margin */
+	font-size: 1.125em;
+	font-weight: bold;
+	margin: .3em .6em 0 .6em; /* qrResult has a big margin */
 
 }
 
 #step5 button:disabled, #step5 button[disabled] {
-    color: #888;
+	color: #888;
 }
 
 div#qrResult {
-    text-align: center;
-    margin: .5em;
+	text-align: center;
+	margin: .5em;
 }
 
 div#qrResult img {
-    height: 16em;
+	height: 16em;
 }

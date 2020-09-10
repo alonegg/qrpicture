@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ```
+2020-09-10 12:27:33 Reformat CSS (no code change).
 2020-09-10 12:24:56 Fixed 'tail' layout and tweaked theme.
 ```
 
