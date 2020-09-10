@@ -34,6 +34,7 @@ Section contents are constructed inwards going outwards using `"position:relativ
 *   LAMP environment
 *   libgd graphical library
 *   GD-enabled php
+*   MooTools for DOM/JavaScript connectivity
 
 # Installation
 
@@ -83,6 +84,7 @@ This project is licensed under the GNU AFFERO General Public License v3 - see th
 
 ## Acknowledgments
 
-* Derrick Coetzee and his amazing work on Spatial Colour Quantization.
 * Masahiro Hara and his work on setting the QR code standard.
 * Irving S. Reed and Gustave Solomon for their work on "Reed-Solomon ECC".
+* Derrick Coetzee and his amazing work on Spatial Colour Quantization.
+* Donald Meagher and his work on octrees for colour quantization.

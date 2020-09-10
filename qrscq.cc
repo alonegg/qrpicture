@@ -1566,7 +1566,7 @@ opt_width = opt_height = 186;
 			}
 		}
 		if (numSafe + numUnsafe)
-			logline("image consists of %2.1f%% QR-safe colours\n", numSafe * 100.0 / (numSafe + numUnsafe));
+			logline("image consists of %2.1f%% safe colours\n", numSafe * 100.0 / (numSafe + numUnsafe));
 			
 		// temporarily reserve last two colours for black/white
 		opt_palette_size -= 2;
