@@ -1570,11 +1570,19 @@ opt_width = opt_height = 186;
 			
 		// temporarily reserve last two colours for black/white
 		opt_palette_size -= 2;
-		
+
 		// merge colours until final palette count
-		while (heap.n > opt_palette_size + 1)
+		while (heap.n - 1 > opt_palette_size)
 			heap_add(&heap, node_fold(pop_heap(&heap)));
- 
+
+		// make room for black/white
+		while (heap.n - 1 > 255 - 2)
+			heap_add(&heap, node_fold(pop_heap(&heap)));
+
+		// lower requested palette size if insufficient colours available
+		if (heap.n - 1 < opt_palette_size)
+			opt_palette_size = heap.n - 1;
+
 		// convert tree to palette
 		for (int i = 1; i < heap.n; i++) {
 			oct_node got = heap.buf[i];
@@ -1592,15 +1600,16 @@ opt_width = opt_height = 186;
 			palette[i-1].g = got->g / 255.0;
 			palette[i-1].b = got->b / 255.0;
 		}
-		
+
 		// force last two colours as black/white
-		opt_palette_size += 2;
-		palette[opt_palette_size-2].r = 0;
-		palette[opt_palette_size-2].g = 0;
-		palette[opt_palette_size-2].b = 0;
-		palette[opt_palette_size-1].r = 1;
-		palette[opt_palette_size-1].g = 1;
-		palette[opt_palette_size-1].b = 1;
+		palette[opt_palette_size].r = 0;
+		palette[opt_palette_size].g = 0;
+		palette[opt_palette_size].b = 0;
+		opt_palette_size++;
+		palette[opt_palette_size].r = 1;
+		palette[opt_palette_size].g = 1;
+		palette[opt_palette_size].b = 1;
+		opt_palette_size++;
 	} else {
 		palette[opt_palette_size-2].r = 0;
 		palette[opt_palette_size-2].g = 0;
