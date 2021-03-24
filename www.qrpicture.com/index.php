@@ -4,30 +4,46 @@
 require('config.php');
 
 ?><!DOCTYPE HTML>
-<html>
-<!--
- *  This file is part of qrpicture, photo realistic QR-codes.
- *  Copyright (C) 2007, xyzzy@rockingship.org
- *
- *  This program is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU Affero General Public License as published
- *  by the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU Affero General Public License for more details.
- *
- *  You should have received a copy of the GNU Affero General Public License
- *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
--->
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="description" content="Create photo, image and colour realistic QR codes"/>
-	<link rel="shortcut icon" href="favicon.ico"/>
+	<meta charset="UTF-8">
+	<!--
+	 *  This file is part of qrpicture, picture to colour QR code converter.
+	 *  Copyright (C) 2007, xyzzy@rockingship.org
+	 *
+	 *  This program is free software: you can redistribute it and/or modify
+	 *  it under the terms of the GNU Affero General Public License as published
+	 *  by the Free Software Foundation, either version 3 of the License, or
+	 *  (at your option) any later version.
+	 *
+	 *  This program is distributed in the hope that it will be useful,
+	 *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+	 *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	 *  GNU Affero General Public License for more details.
+	 *
+	 *  You should have received a copy of the GNU Affero General Public License
+	 *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+	-->
+
+	<title>Picture to colour QR code converter</title>
+	<meta property="og:title" content="Picture to colour QR code converter">
+	<meta name="description" content="Picture to colour QR code converter">
+	<meta property="og:description" content="Picture to colour QR code converter">
+	<link rel="shortcut icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+	<link rel="shortcut icon" type="image/png" sizes="152x152" href="assets/favicon-152.png">
+	<link rel="shortcut icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="152x152" href="assets/favicon-152.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+	<meta property="og:url" content="https://qrpicture.com/index.php">
+	<meta property="og:image" content="https://qrpicture.com/assets/qrpicture-420x420.gif">
+	<meta property="og:type" content="website">
+	<meta property="og:locale" content="en_GB">
+	<meta name="twitter:card" content="summary_large_image"/>
+	<meta property="twitter:title" content="QRpicture - Picture to colour QR code converter"/>
+	<meta property="twitter:image" content="https://qrpicture.com/assets/qrpicture-420x420.gif"/>
+
 	<link href="qrpicture.css" rel="stylesheet" type="text/css"/>
-	<title><?php echo $sitename ?></title>
 	<script src="MooTools-Core-1.6.0.js" type="text/javascript"></script>
 	<script src="MooTools-More-1.6.0.js" type="text/javascript"></script>
 	<script src="qrpicture.js" type="text/javascript"></script>

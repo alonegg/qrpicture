@@ -1,4 +1,17 @@
-Welcome to the world of photo realistic QR's.
+---
+layout: home
+title: "qrpicture - Picture to colour QR code converter"
+image: assets/qrpicture-420x420.gif
+---
+
+\[click on image to jump to the converter\]
+[![teaser](assets/qrpicture-420x420.gif)](https://QRpicture.com)
+
+# qrpicture
+
+Create photo and colour QR codes, hosted on [https://QRpicture.com](https://QRpicture.com)
+
+### Welcome to the Wonderful World of photo and colour QR's
 
 Features:
 *   93x93 pixel QR code capable of holding 100 characters.
@@ -6,7 +19,7 @@ Features:
 *   186x186 pixel colour information.
 *   Colours are chosen from a high-contrast QR-safe palette.
 *   Dithering introduces blurring which reduces sharp contrast edges.
-*   Repository hosted on [www.qrpicture.com](https://www.qrpicture.com).
+*   Repository hosted on [https://QRpicture.com](https://QRpicture.com).index
     
 Creating photo QR's is a two-part process.
 
@@ -18,7 +31,7 @@ The colour palette is created using Spacial Colour Quantification.
 
 Both parts use the same SCQ dithering mechanism to maximize shades and perception to give the result a natural effect.
 
-# Scalable mobile friendly html/css user interface
+## Scalable mobile friendly html/css user interface
 
 The UI design is highly responsive and scales dynamically to screen size and aspect ratio.
 The intention is to have a single page interface optimally utilize to the screen using a single layout for both mobile and desktop.
@@ -29,58 +42,66 @@ This makes ALL elements/borders/spacing scale to a single base value `"document.
 The general layout if constructed from the screen edges going inward using `"position:absolute"` and `"%"` as units.
 Section contents are constructed inwards going outwards using `"position:relative"` and `"em"` as units.
 
-# Requirements
+## Requirements
 
 *   LAMP environment
 *   libgd graphical library
 *   GD-enabled php
 *   MooTools for DOM/JavaScript connectivity
 
-# Installation
+## Installation
 
 You can create the autoconf framework with the script `autogen.sh` if `configure` is missing.
 Otherwise, the GitHub release section will have a framework enabled bundle `https://github.com/xyzzy/qrpicture/releases/`.
  
 Configure and set prefix to document root
 
-```
-	./configure --prefix=<documentroot>
+```sh
+  ./configure --prefix=<documentroot>
 ```
 
 Build qrcode/qrscq
 
-```
-	make
+```sh
+  make
 ```
 
 Create database and load tables
 
-```
-	mysql < qrpicture.sql
-	edit config.php
-	make "image" directory writable for http server
+```sh
+  mysql < qrpicture.sql
+  edit config.php
+  make "image" directory writable for http server
 ```
 
 Install site
 
-```
-	make install
+```sh
+  make install
 ```
 
 Start background workers.
 I suggest one worker per CPU core.
 
-```
-	nohup worker.sh >/var/log/httpd/worker1.out 2>>/var/log/httpd/worker1.err&
+```sh
+  nohup worker.sh >/var/log/httpd/worker1.out 2>>/var/log/httpd/worker1.err&
 ```
 	
-# Versioning
+## Source code
+
+Grab one of the tarballs at [https://github.com/xyzzy/smile/releases](https://github.com/xyzzy/smile/releases) or checkout the latest code:
+
+```sh
+  git clone https://github.com/xyzzy/qrpicture.git
+```
+
+## Versioning
 
 Using [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/xyzzy/qrpicture/tags).
 
-# License
+## License
 
-This project is licensed under the GNU AFFERO General Public License v3 - see the [LICENSE](LICENSE) file for details
+This project is licensed under the GNU AFFERO General Public License v3 - see the [LICENSE.txt](LICENSE.txt) file for details
 
 ## Acknowledgments
 

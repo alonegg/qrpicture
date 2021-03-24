@@ -7,13 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ```
-2020-09-11 22:28:38 Fixed xyzzy/qrpicture#10 - Lower requested palette size if insufficient colours available.
-2020-09-10 12:33:45 Lost+Found.
-2020-09-10 12:27:33 Reformat CSS (no code change).
-2020-09-10 12:24:56 Fixed 'tail' layout and tweaked theme.
+2021-03-24 23:25:42 Changed: Renamed `index.php` to `index.html`.
+2021-03-24 23:06:16 Added: `moonwalk` theme.
+2021-01-03 21:03:18 Added: favimage
+2020-09-11 22:28:38 Fixed: xyzzy/qrpicture#10 - Lower requested palette size if insufficient colours available
+2020-09-10 12:33:45 Changed: Lost+Found
+2020-09-10 12:27:33 Changed: Reformat CSS (no code change)
+2020-09-10 12:24:56 Fixed: 'tail' layout and tweaked theme
 ```
 
-## [Release 1.3.0] 2020-09-08 18:22:54
+## 2020-09-08 18:22:54 [Version 1.3.0]
 
 Enabled octree to create initial palette for better colour results.
 
@@ -27,7 +30,7 @@ NOTE:	When upgrading from v1.2.0 you need to manually upgrade the database table
 2020-09-08 16:15:59 Fixed xyzzy/qrpicture#7 - Add `numColour`.
 ```
 
-## [Release 1.2.0] 2020-09-03 01:22:40
+## 2020-09-03 01:22:40 [Version 1.2.0]
 
 Redesigned html/css from scratch for highly responsive mobile/desktop friendly site.
 
@@ -37,7 +40,7 @@ Redesigned html/css from scratch for highly responsive mobile/desktop friendly s
 2020-09-03 00:43:20 Fix asset and repository names.
 ```
 
-## [Release 1.1.0] 2020-08-18 22:58:45
+## 2020-08-18 22:58:45 [Version 1.1.0]
 
 Feedback from AWS launch.
 Most notably worker processes need to be manually started.
@@ -56,7 +59,7 @@ Most notably worker processes need to be manually started.
 2020-08-13 21:39:01 Minor post-release fixups.
 ```
 
-## Release 1.0.0 2020-08-13 21:01:10
+## 2020-08-13 21:01:10 Version 1.0.0
 
 ```
 2020-08-12 10:53:55 Initial commit.
@@ -64,6 +67,6 @@ Most notably worker processes need to be manually started.
 ```
 
 [Unreleased]: https://github.com/xyzzy/qrpicture/compare/v1.3.0...HEAD
-[1.3.0]: https://github.com/xyzzy/qrpicture/compare/v1.2.0...v1.3.0
-[1.2.0]: https://github.com/xyzzy/qrpicture/compare/v1.1.0...v1.2.0
-[1.1.0]: https://github.com/xyzzy/qrpicture/compare/v1.0.0...v1.1.0
+[Version 1.3.0]: https://github.com/xyzzy/qrpicture/compare/v1.2.0...v1.3.0
+[Version 1.2.0]: https://github.com/xyzzy/qrpicture/compare/v1.1.0...v1.2.0
+[Version 1.1.0]: https://github.com/xyzzy/qrpicture/compare/v1.0.0...v1.1.0
