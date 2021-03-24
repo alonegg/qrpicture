@@ -1,6 +1,6 @@
 <?php
 /*
- *  This file is part of qrpicture, photo realistic QR-codes.
+ *  This file is part of qrpicture, picture to colour QR code converter.
  *  Copyright (C) 2007, xyzzy@rockingship.org
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -67,4 +67,3 @@ if ($numWaiters == 0)
 if ($numWaiters < 5)
 	die(json_encode(array('jobid' => $jobId, 'delay' => 1000, 'info' => 'Your QR is queued at position #' . $numWaiters)));
 die(json_encode(array('jobid' => $jobId, 'delay' => 10000, 'info' => 'Your QR is queued at position #' . $numWaiters)));
-	

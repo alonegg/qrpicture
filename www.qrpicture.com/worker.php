@@ -1,6 +1,6 @@
 <?php
 /*
- *  This file is part of qrpicture, photo realistic QR-codes.
+ *  This file is part of qrpicture, picture to colour QR code converter.
  *  Copyright (C) 2007, xyzzy@rockingship.org
  *
  *  This program is free software: you can redistribute it and/or modify
