@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ```
+2021-03-25 00:27:38 Added: Donate button.
 2021-03-24 23:25:42 Changed: Renamed `index.php` to `index.html`.
 2021-03-24 23:06:16 Added: `moonwalk` theme.
 2021-01-03 21:03:18 Added: favimage

@@ -43,6 +43,11 @@ span.large { font-size: 1.125em; }
 span.xlarge { font-size: 1.5em; }
 span.xxlarge { font-size: 2em; }
 
+a > img {
+	display: inline;
+	vertical-align: middle;
+}
+
 /*
  *	top-level Layout
  */
@@ -140,7 +145,7 @@ div#main {
  *	note: DO NOT USE small/large/xlarge/xxlarge directly as they do not change on client resize.
  */
 
-div.headtail img {
+div.headtail img.example {
 	position: absolute;
 	width: 10em;
 	height: 10em;
@@ -180,29 +185,29 @@ div.head p, div.tail p {
 	margin: 0.8em 0; /* controlled line-separator margin around <p> */
 }
 
-p#head1 {
+p.head1 {
 	font-size: 2em;
 	text-align: center;
 	font-weight: bold;
 }
 
-p#head2 {
+p.head2 {
 	font-size: 1.125em;
 	text-align: center;
 	font-style: italic;
 }
 
-p#tail1 {
+p.tail1 {
 	font-size: 1em;
 	text-align: center;
 }
 
-p#tail1 a {
+p.tail1 a {
 	text-decoration: none;
 	white-space: nowrap;
 }
 
-p#tail2 {
+p.tail2 {
 	font-size: 0.6em;
 	text-align: center;
 	font-style: italic;

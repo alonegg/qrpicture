@@ -11,6 +11,9 @@ image: assets/qrpicture-420x420.gif
 
 Create photo and colour QR codes, hosted on [https://QRpicture.com](https://QRpicture.com)
 
+Instead of an ad with tracking...  
+Want to [donate ![opencollective](assets/opencollective-icon.svg)](https://opencollective.com/QRpicture) some appreciation for the use or inspiration it gives you?
+
 ### Welcome to the Wonderful World of photo and colour QR's
 
 Features:
