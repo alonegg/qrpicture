@@ -1,11 +1,11 @@
 ---
 layout: home
 title: "qrpicture - Picture to colour QR code converter"
-image: assets/qrpicture-420x420.gif
+image: assets/qrpicture-420x420.jpg
 ---
 
-\[click on image to jump to the converter\]
-[![teaser](assets/qrpicture-420x420.gif)](https://QRpicture.com)
+\[click on image to jump to the converter\]  
+[![teaser](assets/qrpicture-420x420.jpg)](https://QRpicture.com)
 
 # qrpicture
 

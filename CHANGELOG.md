@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## 2021-03-25 00:49:31 [Version 1.4.0]
+
 ```
 2021-03-25 00:27:38 Added: Donate button.
 2021-03-24 23:25:42 Changed: Renamed `index.php` to `index.html`.
@@ -67,7 +69,8 @@ Most notably worker processes need to be manually started.
 2020-08-13 21:01:10 Reconstructed most of the functionality from backups.
 ```
 
-[Unreleased]: https://github.com/xyzzy/qrpicture/compare/v1.3.0...HEAD
+[Unreleased]: https://github.com/xyzzy/qrpicture/compare/v1.4.0...HEAD
+[Version 1.4.0]: https://github.com/xyzzy/qrpicture/compare/v1.3.0...v1.4.0
 [Version 1.3.0]: https://github.com/xyzzy/qrpicture/compare/v1.2.0...v1.3.0
 [Version 1.2.0]: https://github.com/xyzzy/qrpicture/compare/v1.1.0...v1.2.0
 [Version 1.1.0]: https://github.com/xyzzy/qrpicture/compare/v1.0.0...v1.1.0

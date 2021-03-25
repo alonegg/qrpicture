@@ -1,6 +1,6 @@
 ACLOCAL_AMFLAGS = -I m4
 EXTRA_DIST = \
-	LICENSE CHANGELOG.md INSTALL.md README.md \
+	LICENSE.txt CHANGELOG.md INSTALL.md README.md \
 	.gitignore \
 	config.php \
 	qrpicture.sql \
@@ -8,8 +8,7 @@ EXTRA_DIST = \
 
 SITEFILES = \
 	www.qrpicture.com/config.php \
-	www.qrpicture.com/favicon.ico \
-	www.qrpicture.com/index.php \
+	www.qrpicture.com/index.html \
 	www.qrpicture.com/qrcode-mask-93x93.png \
 	www.qrpicture.com/qrscq-mask-93x93.png \
 	www.qrpicture.com/MooTools-Core-1.6.0.js \
@@ -21,10 +20,14 @@ SITEFILES = \
 	www.qrpicture.com/submit.php \
 	www.qrpicture.com/worker.php \
 	www.qrpicture.com/worker.sh
-	
+
 SITEFILES_ASSETS = \
 	www.qrpicture.com/assets/eVpdGC-186x186.png \
+	www.qrpicture.com/assets/favicon-32.png \
+	www.qrpicture.com/assets/favicon-152.png \
+	www.qrpicture.com/assets/favicon-192.png \
 	www.qrpicture.com/assets/index.html \
+	www.qrpicture.com/assets/opencollective-icon.svg \
 	www.qrpicture.com/assets/outline0-97x97.png \
 	www.qrpicture.com/assets/outline1-97x97.png \
 	www.qrpicture.com/assets/outline2-97x97.png \
@@ -33,7 +36,8 @@ SITEFILES_ASSETS = \
 	www.qrpicture.com/assets/outline5-97x97.png \
 	www.qrpicture.com/assets/p2G4MC-186x186.png \
 	www.qrpicture.com/assets/qrAwesome.anim.col.210x210.gif \
-	www.qrpicture.com/assets/qrSpiral.anim.col.210x210.gif
+	www.qrpicture.com/assets/qrSpiral.anim.col.210x210.gif \
+	www.qrpicture.com/assets/qrpicture-420x420.jpg
 
 SITEFILES_BIN = \
 	www.qrpicture.com/bin/index.html
@@ -59,7 +63,6 @@ install-data-hook:
 	if test ! -e "$(prefix)/config.php"; then install "$(top_srcdir)/config.php" "$(prefix)/config.php"; fi
 
 uninstall-local:
-	$(RM) $(prefix)/assets/{eVpdGC-186x186.png,index.html,outline0-97x97.png,outline1-97x97.png,outline2-97x97.png,outline3-97x97.png,outline4-97x97.png,outline5-97x97.png,p2G4MC-186x186.png,qrAwesome.anim.col.210x210.gif,qrSpiral.anim.col.210x210.gif}
-	$(RM) $(prefix)/bin/index.html
-	$(RM) $(prefix)/images/index.html
-	$(RM) $(prefix)/{config.php,favicon.ico,index.php,mask-93x93.png,MooTools-Core-1.6.0.js,MooTools-More-1.6.0.js,qrcode-mask-93x93.png,qrpicture.css,qrpicture.js,qrscq-mask-93x93.png,robots.txt,status.php,submit.php,worker.php,worker.sh}
+	$(RM) $(addprefix $(prefix)/, $(subst www.qrpicture.com/,,$(SITEFILES)))
+	$(RM) $(addprefix $(prefix)/, $(subst www.qrpicture.com/,,$(SITEFILES_ASSETS)))
+	$(RM) $(addprefix $(prefix)/, $(subst www.qrpicture.com/,,$(SITEFILES_BIN)))
