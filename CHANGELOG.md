@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+```
+2021-03-25 02:36:07 Fixed: Typos
+```
+
 ## 2021-03-25 00:49:31 [Version 1.4.0]
 
 ```

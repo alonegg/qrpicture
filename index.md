@@ -1,6 +1,6 @@
 ---
 layout: redirect
-redirect: https://qrpicture.com
+redirect: README.html
 title: "qrpicture - Picture to colour QR code converter"
 image: assets/favimage-840x472.jpg
 ---

@@ -12,7 +12,7 @@ image: assets/qrpicture-420x420.jpg
 Create photo and colour QR codes, hosted on [https://QRpicture.com](https://QRpicture.com)
 
 Instead of an ad with tracking...  
-Want to [donate ![opencollective](assets/opencollective-icon.svg)](https://opencollective.com/QRpicture) some appreciation for the use or inspiration it gives you?
+Like to [donate ![opencollective](assets/opencollective-icon.svg)](https://opencollective.com/QRpicture) some appreciation for the use or inspiration this gives you?
 
 ### Welcome to the Wonderful World of photo and colour QR's
 
@@ -22,7 +22,7 @@ Features:
 *   186x186 pixel colour information.
 *   Colours are chosen from a high-contrast QR-safe palette.
 *   Dithering introduces blurring which reduces sharp contrast edges.
-*   Repository hosted on [https://QRpicture.com](https://QRpicture.com).index
+*   Repository hosted on [https://QRpicture.com](https://QRpicture.com).
     
 Creating photo QR's is a two-part process.
 
