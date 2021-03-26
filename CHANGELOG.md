@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ```
+2021-03-26 17:49:15 Added: Donate button.
 2021-03-25 02:36:07 Fixed: Typos
 ```
 

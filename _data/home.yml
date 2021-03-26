@@ -2,12 +2,12 @@ navbar_entries:
   - title: "showcase"
     url: https://xyzzy.github.io
 
-  - title: "qrpicture@github"
+  - title: "qrpicture <div class=\"GitHub-mark\"></div>"
     url: https://github.com/xyzzy/qrpicture
 
 footer_entries:
   - title: "showcase"
     url: https://xyzzy.github.io
 
-  - title: "qrpicture@github"
+  - title: "qrpicture <div class=\"GitHub-mark\"></div>"
     url: https://github.com/xyzzy/qrpicture
